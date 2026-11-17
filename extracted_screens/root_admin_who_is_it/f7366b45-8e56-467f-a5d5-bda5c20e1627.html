@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Силуэт мусоровоза</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>body{margin:0}</style>
+</helmet>
+<div style="position: relative; width: 100%; height: 100%; min-height: 700px; background: #050605; overflow: hidden">
+  <div aria-hidden="true" style="position: absolute; inset: 0; background: radial-gradient(ellipse 55% 50% at {{cx}} 80%, rgba(255,240,205,0.12), rgba(255,240,205,0) 70%); {{s.haze}}"></div>
+  <svg viewBox="0 0 800 560" aria-hidden="true" style="position: absolute; bottom: 0; left: {{cx}}; transform: translateX(-50%); width: {{w}}; height: auto; opacity: {{dim}}">
+    <defs>
+      <filter id="okBlur" x="-150%" y="-150%" width="400%" height="400%"><feGaussianBlur stdDeviation="16"></feGaussianBlur></filter>
+      <filter id="okBlurS" x="-150%" y="-150%" width="400%" height="400%"><feGaussianBlur stdDeviation="5"></feGaussianBlur></filter>
+      <linearGradient id="okBeam" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF1CF" stop-opacity="0.5"></stop><stop offset="1" stop-color="#FFF1CF" stop-opacity="0"></stop></linearGradient>
+      <radialGradient id="okFloor" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#FFF1CF" stop-opacity="0.3"></stop><stop offset="1" stop-color="#FFF1CF" stop-opacity="0"></stop></radialGradient>
+    </defs>
+
+    <ellipse cx="400" cy="530" rx="380" ry="46" fill="url(#okFloor)" style="{{s.beam}}"></ellipse>
+    <polygon points="252,350 304,350 350,560 110,560" fill="url(#okBeam)" style="{{s.beam}}"></polygon>
+    <polygon points="496,350 548,350 690,560 450,560" fill="url(#okBeam)" style="{{s.beam}}"></polygon>
+
+    <g fill="#080A09">
+      <rect x="185" y="52" width="430" height="28" rx="8"></rect>
+      <rect x="165" y="70" width="470" height="330" rx="16"></rect>
+      <rect x="228" y="178" width="344" height="244" rx="20"></rect>
+      <rect x="184" y="196" width="20" height="70" rx="6"></rect>
+      <rect x="596" y="196" width="20" height="70" rx="6"></rect>
+      <rect x="236" y="436" width="64" height="64" rx="10" fill="#050605"></rect>
+      <rect x="500" y="436" width="64" height="64" rx="10" fill="#050605"></rect>
+      <rect x="210" y="404" width="380" height="36" rx="10" fill="#0A0C0B"></rect>
+    </g>
+    <rect x="252" y="198" width="296" height="112" rx="12" fill="#0B0E0C"></rect>
+    <path d="M300 302 L384 268 M416 302 L500 268" stroke="#1A1F1B" stroke-width="4" stroke-linecap="round"></path>
+    <rect x="322" y="328" width="156" height="62" rx="8" fill="#0B0E0C"></rect>
+    <path d="M334 342 H466 M334 356 H466 M334 370 H466" stroke="#1E2420" stroke-width="3" stroke-linecap="round"></path>
+    <rect x="246" y="332" width="64" height="36" rx="10" fill="#0F1210"></rect>
+    <rect x="490" y="332" width="64" height="36" rx="10" fill="#0F1210"></rect>
+
+    <g fill="none" stroke="#3A423C" stroke-width="2" style="{{s.rim}}">
+      <rect x="185" y="52" width="430" height="28" rx="8"></rect>
+      <rect x="165" y="70" width="470" height="330" rx="16"></rect>
+      <rect x="228" y="178" width="344" height="244" rx="20"></rect>
+      <rect x="252" y="198" width="296" height="112" rx="12"></rect>
+      <rect x="210" y="404" width="380" height="36" rx="10"></rect>
+      <rect x="184" y="196" width="20" height="70" rx="6"></rect>
+      <rect x="596" y="196" width="20" height="70" rx="6"></rect>
+      <path d="M204 212 H228 M596 212 H572"></path>
+      <path d="M60 500 H740" stroke="#1F2521"></path>
+    </g>
+
+    <g fill="#FFB547" style="{{s.amber}}">
+      <rect x="337" y="184" width="14" height="6" rx="3"></rect>
+      <rect x="361" y="184" width="14" height="6" rx="3"></rect>
+      <rect x="393" y="184" width="14" height="6" rx="3"></rect>
+      <rect x="425" y="184" width="14" height="6" rx="3"></rect>
+      <rect x="449" y="184" width="14" height="6" rx="3"></rect>
+    </g>
+
+    <g style="{{s.lamp}}">
+      <circle cx="278" cy="350" r="50" fill="#FFE9B8" filter="url(#okBlur)"></circle>
+      <circle cx="522" cy="350" r="50" fill="#FFE9B8" filter="url(#okBlur)"></circle>
+      <rect x="252" y="338" width="52" height="24" rx="7" fill="#FFF6DD"></rect>
+      <rect x="496" y="338" width="52" height="24" rx="7" fill="#FFF6DD"></rect>
+    </g>
+
+    <g style="{{s.led}}">
+      <circle cx="532" cy="216" r="10" fill="#4CD137" filter="url(#okBlurS)"></circle>
+      <circle cx="532" cy="216" r="4.5" fill="#7FE06C"></circle>
+    </g>
+  </svg>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"animate":{"editor":"boolean","default":false},"placement":{"editor":"enum","options":["center","right"],"default":"center"},"dim":{"editor":"range","min":0.2,"max":1,"step":0.05,"default":1},"$preview":{"width":1200,"height":700}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const anim = this.props.animate === true || this.props.animate === 'true';
+    const right = (this.props.placement ?? 'center') === 'right';
+    let dim = parseFloat(this.props.dim ?? 1);
+    if (isNaN(dim)) dim = 1;
+    const a = (name, dur, delay, ease) => anim
+      ? 'opacity:0;animation:' + name + ' ' + dur + 's ' + (ease || 'ease-out') + ' ' + delay + 's forwards'
+      : 'opacity:1';
+    return {
+      cx: right ? '70%' : '50%',
+      w: right ? 'min(820px, 64%)' : 'min(980px, 92%)',
+      dim: dim,
+      s: {
+        lamp: a('okFlick', 1.6, 0.8, 'linear'),
+        beam: a('okFade', 1.4, 1.7),
+        haze: a('okFade', 2, 1.9),
+        rim: a('okFade', 1.6, 2.1),
+        amber: a('okFade', 0.5, 3.0),
+        led: anim
+          ? 'opacity:0;animation:okFade .3s ease-out 3.4s forwards, okBlink 2.4s ease-in-out 3.7s infinite'
+          : 'animation:okBlink 2.4s ease-in-out infinite'
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

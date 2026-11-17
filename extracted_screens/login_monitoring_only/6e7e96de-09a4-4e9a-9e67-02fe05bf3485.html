@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Логотип OpenKoqis</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div role="img" aria-label="OpenKoqis" style="display: inline-flex; align-items: center; gap: {{gap}}px">
+  <svg viewBox="0 0 56 36" width="{{iw}}" height="{{size}}" aria-hidden="true">
+    <rect x="0" y="3" width="35" height="23" rx="4" fill="#4CD137"></rect>
+    <path d="M37 10 H46.5 L55 18.5 V26 H37 Z" fill="#4CD137"></path>
+    <circle cx="10" cy="29.5" r="5.5" fill="#4CD137"></circle>
+    <circle cx="45" cy="29.5" r="5.5" fill="#4CD137"></circle>
+  </svg>
+  <span aria-hidden="true" style="font-family: Unbounded, sans-serif; font-weight: 700; font-size: {{fs}}px; letter-spacing: -0.02em; line-height: 1"><span style="color: {{ink}}">open</span><span style="color: #4CD137">koqis</span></span>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"dark":{"editor":"boolean","default":false},"size":{"editor":"int","min":16,"max":80,"default":28},"$preview":{"width":260,"height":56}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const dark = this.props.dark === true || this.props.dark === 'true';
+    let size = parseFloat(this.props.size ?? 28);
+    if (isNaN(size)) size = 28;
+    return {
+      size: size,
+      iw: Math.round(size * 56 / 36),
+      fs: Math.round(size * 0.8),
+      gap: Math.round(size * 0.4),
+      ink: dark ? '#F2F5F1' : '#0E1410'
+    };
+  }
+}
+</script>
+</body>
+</html>

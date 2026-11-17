@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<meta charset="utf-8">
+<title>Input и Button — состояния</title>
+<script src="e83ed950-b83a-481c-9c0a-15f27d19c020"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("3ae1af91-0c8f-4498-bba9-184f17a177a3") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2ZL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1pL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2pL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("deadfe2e-3faa-4e40-b79b-21ef8dc3a614") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("3ae1af91-0c8f-4498-bba9-184f17a177a3") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2ZL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1pL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2pL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("deadfe2e-3faa-4e40-b79b-21ef8dc3a614") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("3ae1af91-0c8f-4498-bba9-184f17a177a3") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2ZL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1pL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2pL7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7W0Q5n-wU.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("deadfe2e-3faa-4e40-b79b-21ef8dc3a614") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/unbounded/v12/Yq6W-LOTXCb04q32xlpwtsZfvRIkSYZH.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("34ccec45-cac3-4eb3-b443-9f6cb4babf64") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/unbounded/v12/Yq6W-LOTXCb04q32xlpwtMZfvRIkSYZH.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/unbounded/v12/Yq6W-LOTXCb04q32xlpwtcZfvRIkSYZH.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("cdb882fd-f2f1-4c99-a02b-b8a37c7cde1c") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/unbounded/v12/Yq6W-LOTXCb04q32xlpwtsZfvRIkSYZH.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("34ccec45-cac3-4eb3-b443-9f6cb4babf64") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/unbounded/v12/Yq6W-LOTXCb04q32xlpwtMZfvRIkSYZH.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/unbounded/v12/Yq6W-LOTXCb04q32xlpwtcZfvRIkSYZH.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("cdb882fd-f2f1-4c99-a02b-b8a37c7cde1c") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/unbounded/v12/Yq6W-LOTXCb04q32xlpwtsZfvRIkSYZH.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("34ccec45-cac3-4eb3-b443-9f6cb4babf64") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/unbounded/v12/Yq6W-LOTXCb04q32xlpwtMZfvRIkSYZH.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/unbounded/v12/Yq6W-LOTXCb04q32xlpwtcZfvRIkSYZH.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Unbounded';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("cdb882fd-f2f1-4c99-a02b-b8a37c7cde1c") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>
+body{margin:0;background:#F4F6F2}
+input::placeholder{color:#7A857B}
+</style>
+</helmet>
+<div style="width: 1240px; height: 1000px; box-sizing: border-box; padding: 56px; background: #F4F6F2; color: #0E1410; font-family: Inter, system-ui, sans-serif; display: flex; flex-direction: column; gap: 32px">
+  <div style="display: flex; flex-direction: column; gap: 8px">
+    <h1 style="margin: 0; font-family: Unbounded, sans-serif; font-weight: 600; font-size: 28px; letter-spacing: -0.02em">Input — состояния</h1>
+    <p style="margin: 0; font-size: 15px; color: #4E5950">Один компонент, высота 52 px, радиус 12 px. Подпись сверху, подсказка или ошибка снизу.</p>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 32px">
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <span style="font-size: 12px; font-weight: 600; letter-spacing: .06em; color: #2F7A22">DEFAULT</span>
+      <span style="font-size: 13px; color: #4E5950">Пустое поле, ждёт ввода.</span>
+      <label for="s1" style="font-size: 14px; font-weight: 500; color: #3E4840; margin-top: 4px">Email</label>
+      <input id="s1" placeholder="name@example.com" style="box-sizing: border-box; width: 100%; height: 52px; padding: 0 16px; border-radius: 12px; border: 1px solid #8A948A; background: #FFFFFF; color: #0E1410; font: 400 16px Inter, system-ui, sans-serif">
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <span style="font-size: 12px; font-weight: 600; letter-spacing: .06em; color: #2F7A22">HOVER</span>
+      <span style="font-size: 13px; color: #4E5950">Курсор над полем: рамка темнее.</span>
+      <label for="s2" style="font-size: 14px; font-weight: 500; color: #3E4840; margin-top: 4px">Email</label>
+      <input id="s2" placeholder="name@example.com" style="box-sizing: border-box; width: 100%; height: 52px; padding: 0 16px; border-radius: 12px; border: 1px solid #3E4840; background: #FFFFFF; color: #0E1410; font: 400 16px Inter, system-ui, sans-serif">
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <span style="font-size: 12px; font-weight: 600; letter-spacing: .06em; color: #2F7A22">FOCUS</span>
+      <span style="font-size: 13px; color: #4E5950">Поле активно: зелёная рамка и подсветка.</span>
+      <label for="s3" style="font-size: 14px; font-weight: 500; color: #3E4840; margin-top: 4px">Email</label>
+      <input id="s3" sc-camel-default-value="admin@exa" style="box-sizing: border-box; width: 100%; height: 52px; padding: 0 16px; border-radius: 12px; border: 1.5px solid #2F8F22; box-shadow: 0 0 0 4px rgba(76,209,55,0.25); background: #FFFFFF; color: #0E1410; font: 400 16px Inter, system-ui, sans-serif">
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <span style="font-size: 12px; font-weight: 600; letter-spacing: .06em; color: #2F7A22">FILLED</span>
+      <span style="font-size: 13px; color: #4E5950">Значение введено, фокуса нет.</span>
+      <label for="s4" style="font-size: 14px; font-weight: 500; color: #3E4840; margin-top: 4px">Email</label>
+      <input id="s4" sc-camel-default-value="admin@example.com" style="box-sizing: border-box; width: 100%; height: 52px; padding: 0 16px; border-radius: 12px; border: 1px solid #8A948A; background: #FFFFFF; color: #0E1410; font: 400 16px Inter, system-ui, sans-serif">
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <span style="font-size: 12px; font-weight: 600; letter-spacing: .06em; color: #2F7A22">ERROR</span>
+      <span style="font-size: 13px; color: #4E5950">Ошибка проверки: красная рамка и текст под полем.</span>
+      <label for="s5" style="font-size: 14px; font-weight: 500; color: #3E4840; margin-top: 4px">Email</label>
+      <input id="s5" sc-camel-default-value="admin@" aria-invalid="true" aria-describedby="s5e" style="box-sizing: border-box; width: 100%; height: 52px; padding: 0 16px; border-radius: 12px; border: 1.5px solid #C4382B; background: #FFF7F6; color: #0E1410; font: 400 16px Inter, system-ui, sans-serif">
+      <span id="s5e" style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: #B3301F">
+        <svg width="14" height="14" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v6M12 16.5v.5"></path></svg>
+        Введите email полностью
+      </span>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <span style="font-size: 12px; font-weight: 600; letter-spacing: .06em; color: #2F7A22">DISABLED</span>
+      <span style="font-size: 13px; color: #4E5950">Недоступно для ввода: приглушённые цвета.</span>
+      <label for="s6" style="font-size: 14px; font-weight: 500; color: #6A746B; margin-top: 4px">Email</label>
+      <input id="s6" disabled="{{ true }}" sc-camel-default-value="admin@example.com" style="box-sizing: border-box; width: 100%; height: 52px; padding: 0 16px; border-radius: 12px; border: 1px solid #D5DBD3; background: #EEF1EC; color: #6A746B; font: 400 16px Inter, system-ui, sans-serif">
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <span style="font-size: 12px; font-weight: 600; letter-spacing: .06em; color: #2F7A22">PASSWORD</span>
+      <span style="font-size: 13px; color: #4E5950">Кнопка «показать/скрыть», зона нажатия 44×44.</span>
+      <label for="s7" style="font-size: 14px; font-weight: 500; color: #3E4840; margin-top: 4px">Пароль</label>
+      <div style="position: relative">
+        <input id="s7" type="password" sc-camel-default-value="secret-pass" style="box-sizing: border-box; width: 100%; height: 52px; padding: 0 56px 0 16px; border-radius: 12px; border: 1px solid #8A948A; background: #FFFFFF; color: #0E1410; font: 400 16px Inter, system-ui, sans-serif">
+        <button type="button" aria-label="Показать пароль" style="position: absolute; top: 4px; right: 4px; width: 44px; height: 44px; border: none; border-radius: 10px; background: transparent; color: #4E5950; display: flex; align-items: center; justify-content: center">
+          <svg width="20" height="20" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+        </button>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <span style="font-size: 12px; font-weight: 600; letter-spacing: .06em; color: #2F7A22">PHONE</span>
+      <span style="font-size: 13px; color: #4E5950">Код страны (по умолчанию +7) и маска номера.</span>
+      <label for="s8" style="font-size: 14px; font-weight: 500; color: #3E4840; margin-top: 4px">Телефон</label>
+      <div style="display: flex; gap: 8px">
+        <button type="button" aria-label="Код страны: Казахстан, +7" style="flex: none; display: inline-flex; align-items: center; gap: 6px; height: 52px; padding: 0 12px; border-radius: 12px; border: 1px solid #8A948A; background: #FFFFFF; color: #0E1410; font: 500 15px Inter, system-ui, sans-serif">
+          KZ +7
+          <svg width="14" height="14" sc-camel-view-box="0 0 24 24" fill="none" stroke="#4E5950" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg>
+        </button>
+        <input id="s8" type="tel" sc-camel-default-value="701 234 56 78" style="box-sizing: border-box; flex: 1 1 auto; min-width: 0; height: 52px; padding: 0 16px; border-radius: 12px; border: 1px solid #8A948A; background: #FFFFFF; color: #0E1410; font: 400 16px Inter, system-ui, sans-serif">
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <span style="font-size: 12px; font-weight: 600; letter-spacing: .06em; color: #2F7A22">OTP</span>
+      <span style="font-size: 13px; color: #4E5950">6 ячеек, фокус переходит сам; вставка кода целиком.</span>
+      <span style="font-size: 14px; font-weight: 500; color: #3E4840; margin-top: 4px">Код</span>
+      <div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px">
+        <input aria-label="Цифра 1" sc-camel-default-value="4" sc-camel-max-length="1" style="box-sizing: border-box; width: 100%; height: 52px; border-radius: 10px; border: 1px solid #8A948A; background: #FFFFFF; text-align: center; font: 600 20px Inter, system-ui, sans-serif; color: #0E1410">
+        <input aria-label="Цифра 2" sc-camel-default-value="8" sc-camel-max-length="1" style="box-sizing: border-box; width: 100%; height: 52px; border-radius: 10px; border: 1px solid #8A948A; background: #FFFFFF; text-align: center; font: 600 20px Inter, system-ui, sans-serif; color: #0E1410">
+        <input aria-label="Цифра 3" sc-camel-max-length="1" style="box-sizing: border-box; width: 100%; height: 52px; border-radius: 10px; border: 1.5px solid #2F8F22; box-shadow: 0 0 0 4px rgba(76,209,55,0.25); background: #FFFFFF; text-align: center; font: 600 20px Inter, system-ui, sans-serif; color: #0E1410">
+        <input aria-label="Цифра 4" sc-camel-max-length="1" style="box-sizing: border-box; width: 100%; height: 52px; border-radius: 10px; border: 1px solid #8A948A; background: #FFFFFF; text-align: center; font: 600 20px Inter, system-ui, sans-serif; color: #0E1410">
+        <input aria-label="Цифра 5" sc-camel-max-length="1" style="box-sizing: border-box; width: 100%; height: 52px; border-radius: 10px; border: 1px solid #8A948A; background: #FFFFFF; text-align: center; font: 600 20px Inter, system-ui, sans-serif; color: #0E1410">
+        <input aria-label="Цифра 6" sc-camel-max-length="1" style="box-sizing: border-box; width: 100%; height: 52px; border-radius: 10px; border: 1px solid #8A948A; background: #FFFFFF; text-align: center; font: 600 20px Inter, system-ui, sans-serif; color: #0E1410">
+      </div>
+    </div>
+  </div>
+
+  <div style="height: 1px; background: #DCE2DA"></div>
+
+  <div style="display: flex; flex-direction: column; gap: 16px">
+    <h2 style="margin: 0; font-family: Unbounded, sans-serif; font-weight: 600; font-size: 22px; letter-spacing: -0.02em">Button</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-end">
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <span style="font-size: 12px; font-weight: 600; letter-spacing: .06em; color: #2F7A22">PRIMARY</span>
+        <button type="button" style="min-height: 52px; padding: 0 28px; border: none; border-radius: 12px; background: #4CD137; color: #08130A; font: 600 16px Inter, system-ui, sans-serif">Войти</button>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <span style="font-size: 12px; font-weight: 600; letter-spacing: .06em; color: #2F7A22">PRIMARY · HOVER</span>
+        <button type="button" style="min-height: 52px; padding: 0 28px; border: none; border-radius: 12px; background: #3DB82A; color: #08130A; font: 600 16px Inter, system-ui, sans-serif">Войти</button>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <span style="font-size: 12px; font-weight: 600; letter-spacing: .06em; color: #2F7A22">PRIMARY · LOADING</span>
+        <button type="button" aria-label="Вход выполняется" style="min-height: 52px; padding: 0 28px; border: none; border-radius: 12px; background: #4CD137; color: #08130A; font: 600 16px Inter, system-ui, sans-serif; display: inline-flex; align-items: center; gap: 10px">
+          <svg width="18" height="18" sc-camel-view-box="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 3a9 9 0 1 1-9 9"></path></svg>
+          Входим…
+        </button>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <span style="font-size: 12px; font-weight: 600; letter-spacing: .06em; color: #2F7A22">PRIMARY · DISABLED</span>
+        <button type="button" disabled="{{ true }}" style="min-height: 52px; padding: 0 28px; border: none; border-radius: 12px; background: #DCE2DA; color: #6A746B; font: 600 16px Inter, system-ui, sans-serif">Войти</button>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <span style="font-size: 12px; font-weight: 600; letter-spacing: .06em; color: #2F7A22">SECONDARY</span>
+        <button type="button" style="min-height: 52px; padding: 0 24px; border: 1px solid #8A948A; border-radius: 12px; background: #FFFFFF; color: #0E1410; font: 500 16px Inter, system-ui, sans-serif">Назад</button>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;$preview&quot;:{&quot;width&quot;:1240,&quot;height&quot;:1000}}">
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+
+
+</body></html>
