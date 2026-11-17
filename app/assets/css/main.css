@@ -1,0 +1,138 @@
+/* Google Fonts & Local Fallbacks */
+:root {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-brand: 'Unbounded', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Brand Green */
+  --color-brand-green: #4CD137;
+  --color-brand-green-hover: #3DB82A;
+  --color-brand-green-light: #7FE06C;
+  --color-brand-green-subtle: #A6EE97;
+  --color-brand-green-glow: rgba(76, 209, 55, 0.25);
+  --color-brand-green-tint: rgba(76, 209, 55, 0.08);
+
+  /* Status Colors */
+  --color-status-ok: #4CD137;
+  --color-status-warning: #F2A93B;
+  --color-status-danger: #C93A2B;
+  --color-status-fault: #8A948A;
+
+  /* Dark Theme Palette (TruckBrain / Default) */
+  --bg-dark-base: #050605;
+  --bg-dark-surface: #080A09;
+  --bg-dark-card: rgba(14, 17, 15, 0.88);
+  --bg-dark-input: #0B0D0C;
+  --border-dark-subtle: #1F2521;
+  --border-dark-medium: #2F3631;
+  --border-dark-active: #4CD137;
+  --text-dark-primary: #F2F5F1;
+  --text-dark-secondary: #C3CBC4;
+  --text-dark-muted: #A9B2AA;
+  --text-dark-subtle: #6F7A70;
+
+  /* Light Theme Palette (Monitoring Only) */
+  --bg-light-base: #F4F6F2;
+  --bg-light-surface: #FFFFFF;
+  --bg-light-card: #FFFFFF;
+  --bg-light-input: #FFFFFF;
+  --border-light-subtle: #E0E5DE;
+  --border-light-medium: #8A948A;
+  --border-light-active: #2F8F22;
+  --text-light-primary: #0E1410;
+  --text-light-secondary: #3E4840;
+  --text-light-muted: #4E5950;
+  --text-light-subtle: #7A857B;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--bg-dark-base);
+  color: var(--text-dark-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+::-webkit-scrollbar-thumb {
+  background: #2F3631;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4CD137;
+}
+
+/* Links */
+a {
+  color: var(--color-brand-green-light);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+a:hover {
+  color: var(--color-brand-green-subtle);
+}
+
+/* Keyframe Animations from Mockups */
+@keyframes okBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes okFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes okFlick {
+  0% { opacity: 0; }
+  6% { opacity: 0.85; }
+  10% { opacity: 0.05; }
+  16% { opacity: 1; }
+  21% { opacity: 0.3; }
+  28%, 100% { opacity: 1; }
+}
+
+@keyframes okGrow {
+  to { transform: scaleX(1); }
+}
+
+@keyframes okPing {
+  0% { opacity: 0; }
+  30% { opacity: 1; }
+  70%, 100% { opacity: 0; }
+}
+
+@keyframes okPop {
+  0% { transform: scale(0.6); opacity: 0; }
+  70% { transform: scale(1.08); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes okSpin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes okPulseGlow {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(76, 209, 55, 0.25); }
+  50% { box-shadow: 0 0 0 8px rgba(76, 209, 55, 0.4); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

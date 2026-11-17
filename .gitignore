@@ -17,6 +17,9 @@ logs
 .DS_Store
 .fleet
 .idea
+extracted_screens/
+unpacked_mockup/
+*.html.bak
 
 # Local env files
 .env
